@@ -27,39 +27,11 @@ namespace MSTestProject.RestGetEndPoint
         private string EndPoint2 = "http://bpdts-test-app-v2.herokuapp.com/city/{city}/users";
 
 
-        [TestMethod]
-        public void TestGetUsingRestSharp()
-
-        {
-
-
-
-            IRestClient restClient = new RestClient();
-
-            IRestRequest restRequest1 = new RestRequest(getUrl);
-            restRequest1.AddHeader("Accept", "application/json");
-            IRestResponse restResponse1 = restClient.Get(restRequest1);
-
-            IRestRequest restRequest2 = new RestRequest("users/{id}", Method.GET);
-            restRequest2.AddUrlSegment("id", 1);
-            restRequest2.AddHeader("Accept", "application/json");
-            IRestResponse restResponse2 = restClient.Get(restRequest2);
-
-            IRestRequest restRequest3 = new RestRequest("city/{city}/users", Method.GET);
-            restRequest2.AddUrlSegment("city", "Kax");
-            restRequest3.AddHeader("Accept", "application/json");
-            IRestResponse restResponse3 = restClient.Get(restRequest3);
-
-
-
-
-        }
-
-
+       
 
 
         [TestMethod]
-        //Verifying the Status Code for BaseUrl
+        //Verifying the Status Code,message and response for BaseUrl
         public void TestStatusCodeBaseUrl()
 
         {
@@ -104,7 +76,7 @@ namespace MSTestProject.RestGetEndPoint
         }
 
         [TestMethod]
-        //Verifying the Status Code for First Endpoint - /user/{id}
+        //Verifying the Status Code ,message and the response for First Endpoint - /user/{id}
         public void TestStatusCodeFirstEndPoint()
 
         {
@@ -157,7 +129,7 @@ namespace MSTestProject.RestGetEndPoint
         }
         [TestMethod]
 
-        //Verifying the Status Code for Second endpoint -city/{city}/users
+        //Verifying the Status Code,message and response body for Second endpoint -city/{city}/users
         public void TestStatusCodeSecondEndPoint()
 
         {
